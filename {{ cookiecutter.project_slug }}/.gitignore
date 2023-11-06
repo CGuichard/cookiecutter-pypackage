@@ -1,0 +1,19 @@
+# Byte-compiled
+__pycache__
+
+# Virtual envs
+/.tox
+/*venv*
+
+# Distribution / packaging
+/dist
+/uv.lock
+
+# Unit test / coverage reports
+/tests-reports
+
+# Docs
+/docs/build
+
+# Caches
+/.*_cache

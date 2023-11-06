@@ -1,0 +1,58 @@
+{
+  "project_name": "Py Package",
+  "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+  "pkg_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
+  "python_min": "3.10",
+  "description": "My package {{ cookiecutter.project_name }}",
+  "author": "Author",
+  "email": "author@mail.xyz",
+  "version": "0.0.0",
+  "copyright_year": "{% now 'utc', '%Y' %}",
+  "license": ["MIT", "Apache-2.0", "GPL-3.0"],
+  "development_status": [
+    "Development Status :: 1 - Planning",
+    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
+    "Development Status :: 6 - Mature",
+    "Development Status :: 7 - Inactive"
+  ],
+  "precommit_push_ope": false,
+  "git_user": "myuser",
+  "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
+  "git_branch": "main",
+  "git_init": true,
+  "__prompts__": {
+    "project_name": "Name of the project",
+    "project_slug": "Slug of the project, lower-case and hyphen-style",
+    "pkg_name": "Name of the python package, python-friendly module name",
+    "python_min": "Minimum version of Python for the project",
+    "description": "Project single-line description",
+    "author": "Author firstname and lastname",
+    "email": "Author email",
+    "version": "Base version for the package",
+    "copyright_year": "Year(s) of the copyright",
+    "license": {
+      "__prompt__": "Choose a license:",
+      "MIT": "MIT License",
+      "Apache-2.0": "Apache Software License (Apache 2.0)",
+      "GPL-3.0": "GNU General Public License v3 (GPLv3)"
+    },
+    "development_status": {
+      "__prompt__": "What's your project development status?",
+      "Development Status :: 1 - Planning": "Planning",
+      "Development Status :: 2 - Pre-Alpha": "Pre-Alpha",
+      "Development Status :: 3 - Alpha": "Alpha",
+      "Development Status :: 4 - Beta": "Beta",
+      "Development Status :: 5 - Production/Stable": "Production/Stable",
+      "Development Status :: 6 - Mature": "Mature",
+      "Development Status :: 7 - Inactive": "Inactive"
+    },
+    "precommit_push_ope": "Pre-commit push operations (docs, test)",
+    "git_user": "Git username",
+    "git_repo": "Git repository url (no .git)",
+    "git_branch": "Git default branch",
+    "git_init": "Initialize the git repository?"
+  }
+}

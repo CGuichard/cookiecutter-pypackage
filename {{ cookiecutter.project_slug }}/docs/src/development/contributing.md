@@ -1,0 +1,2 @@
+--8<-- "CONTRIBUTING.md:header"
+--8<-- "CONTRIBUTING.md:content"

@@ -1,0 +1,144 @@
+# Project information
+site_name: "{{ cookiecutter.project_name }}"
+site_description: "{{ cookiecutter.description }}"
+site_author: "{{ cookiecutter.author }}"
+copyright: "Copyright &copy; {{ cookiecutter.copyright_year }}, {{ cookiecutter.author }}"
+
+# Repository
+repo_name: "{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}"
+repo_url: "{{ cookiecutter.__git_repo }}"
+edit_uri: edit/{{ cookiecutter.git_branch }}/docs/src
+
+# Configuration
+site_dir: "build/html"
+docs_dir: "src"
+theme:
+  name: material
+  language: en
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for auto-system mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to system preference
+
+# Extras
+extra_css:
+  - assets/css/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - mkdocs-click
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      base_path: ["..", "src"]
+      check_paths: true
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+  - tags
+  - termynal
+  - gen-files:
+      scripts:
+        - scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [../src]
+          options:
+            docstring_options:
+              ignore_init_summary: true
+            docstring_section_style: list
+            docstring_style: google
+            group_by_category: true
+            heading_level: 1
+            line_length: 88
+            merge_init_into_class: true
+            separate_signature: true
+            show_bases: true
+            show_category_heading: true
+            show_root_heading: true
+            show_root_toc_entry: true
+            show_signature_annotations: true
+            show_source: false
+            summary: true
+            unwrap_annotated: true
+
+# Pages
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: getting-started/install.md
+      - Usage: getting-started/usage.md
+  - Learn:
+      - learn/overview.md
+      - CLI: learn/cli.md
+  - Tutorials:
+      - tutorials/overview.md
+  - How-to guides:
+      - how-to/overview.md
+  - API Reference: reference/api/
+  - Development:
+      - development/contributing.md
+      - Code of Conduct: development/code_of_conduct.md
+      - Source code: "{{ cookiecutter.__git_repo }}"
+      - Issues: "{{ cookiecutter.__git_repo }}/issues"
+  - About:
+      - about/help.md
+      - about/changelog.md
+      - about/license.md
+
+extra:
+  # Versioning
+  version:
+    provider: mike
+    alias: true
+  # Footer links
+  social:
+    - icon: fontawesome/brands/github
+      link: "{{ cookiecutter.__git_repo }}"
+    - icon: fontawesome/brands/python
+      link: "{{ cookiecutter.__git_repo }}"
+    - icon: fontawesome/brands/dev
+      link: "{{ cookiecutter.__git_repo }}/issues"

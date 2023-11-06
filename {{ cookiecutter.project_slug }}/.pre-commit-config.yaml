@@ -1,0 +1,73 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_stages: [pre-commit]
+default_install_hook_types: [pre-commit, commit-msg, pre-push]
+default_language_version:
+  python: python{{ cookiecutter.python_min }}
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+        args: ["--unsafe"]
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: name-tests-test
+        args: ["--pytest-test-first"]
+      - id: trailing-whitespace
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.1.0
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        args: [--rev-range, HEAD]
+        stages: [pre-push]
+
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.23
+    hooks:
+      - id: validate-pyproject
+
+  - repo: local
+    hooks:
+      - id: lint
+        name: Lint source code (python)
+        entry: tox -e lint
+        language: python
+        files: "^(src|tests)"
+        types_or: [python, pyi]
+        pass_filenames: false
+        additional_dependencies: ["tox~=4.23", "tox-uv"]
+      {%- if cookiecutter.precommit_push_ope %}
+      {% if cookiecutter.python_min not in ["3.10"] -%} {#- FIXME: bug for these versions -#}
+      - id: test
+        name: Test (python)
+        entry: tox
+        language: python
+        always_run: true
+        pass_filenames: false
+        stages: [pre-push]
+        additional_dependencies: ["tox~=4.23", "tox-uv"]
+      {% endif -%}
+      - id: docs
+        name: Generate docs (python)
+        entry: tox -e docs
+        language: python
+        always_run: true
+        pass_filenames: false
+        stages: [pre-push]
+        additional_dependencies: ["tox~=4.23", "tox-uv"]
+      {%- endif %}
