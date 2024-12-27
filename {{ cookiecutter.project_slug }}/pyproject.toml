@@ -93,7 +93,6 @@ tests = [
     "pytest~=8.3",
 ]
 docs = [
-    "black==24.10.0",
     "mike~=2.1",
     "mkdocs-click~=0.8",
     "mkdocs-gen-files~=0.5",
@@ -101,8 +100,9 @@ docs = [
     "mkdocs-material~=9.5",
     "mkdocs-section-index~=0.3",
     "mkdocstrings~=0.27",
-    "mkdocstrings-python~=1.12",
+    "mkdocstrings-python~=1.13",
     "mkdocs~=1.6",
+    "ruff==0.8.4",
     "termynal~=0.12",
 ]
 
