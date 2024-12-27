@@ -221,9 +221,8 @@ exclude_lines = [
     "pragma: no cover",
     "def __str__",
     "def __repr__",
-    "if self.debug",
     "if __name__ == .__main__.:",
-    "raise AssertionError",
+    "if TYPE_CHECKING:",
     "raise NotImplementedError",
 ]
 
