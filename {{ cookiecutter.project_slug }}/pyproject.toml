@@ -80,7 +80,6 @@ dev = [
     "tox~=4.23",
     "tox-uv",
     "watchdog~=6.0",
-    { include-group = "lint" },
 ]
 lint = [
     "mypy~=1.13",
