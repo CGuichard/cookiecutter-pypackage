@@ -4,7 +4,6 @@ MAKEFLAGS += --no-print-directory
 
 UV=uv
 PYTHON=$(UV) run python
-PYTHON_SHELL=$(UV) run bpython
 TOX=$(UV) run tox -qq
 PRE_COMMIT=$(UV) run pre-commit
 COMMITIZEN=$(UV) run cz
@@ -37,7 +36,7 @@ release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@./scripts/update_latest_tag_msg.sh
 
 shell: ## Open Python shell.
-	@$(PYTHON_SHELL)
+	@$(PYTHON)
 
 build: ## Build wheel and tar.gz in 'dist/'.
 	@$(UV) build
