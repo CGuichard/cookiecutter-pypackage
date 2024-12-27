@@ -76,10 +76,10 @@ dev = [
     "commitizen==4.1.0",
     "pre-commit~=4.0",
     "pre-commit-uv",
-    "rich~=13.9",
+    "rich~=13.9", # Script watch.py
     "tox~=4.23",
     "tox-uv",
-    "watchdog~=6.0",
+    "watchdog~=6.0", # Script watch.py
 ]
 lint = [
     "mypy==1.14",
@@ -88,22 +88,22 @@ lint = [
 tests = [
     "pytest-cov~=6.0",
     "pytest-html~=4.1",
-    "pytest-randomly~=3.16",
-    "pytest-sugar~=1.0",
+    "pytest-randomly~=3.16", # Randomize testing order
+    "pytest-sugar~=1.0", # Better output
     "pytest~=8.3",
 ]
 docs = [
     "mike~=2.1",
-    "mkdocs-click~=0.8",
-    "mkdocs-gen-files~=0.5",
-    "mkdocs-literate-nav~=0.6",
+    "mkdocs-click~=0.8", # CLI reference
+    "mkdocs-gen-files~=0.5", # API reference
+    "mkdocs-literate-nav~=0.6", # API reference
     "mkdocs-material~=9.5",
     "mkdocs-section-index~=0.3",
-    "mkdocstrings~=0.27",
-    "mkdocstrings-python~=1.13",
+    "mkdocstrings~=0.27", # API reference
+    "mkdocstrings-python~=1.13", # API reference
     "mkdocs~=1.6",
-    "ruff==0.8.4",
-    "termynal~=0.12",
+    "ruff==0.8.4", # API reference - code formatting
+    "termynal~=0.12", # Animated terminals
 ]
 
 # -----------------------------------------------
