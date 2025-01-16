@@ -18,7 +18,8 @@
     "Development Status :: 7 - Inactive"
   ],
   "cli": false,
-  "precommit_push_ope": false,
+  "precommit_push_test": false,
+  "precommit_push_docs": false,
   "git_user": "myuser",
   "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
   "git_branch": "main",
@@ -50,7 +51,8 @@
       "Development Status :: 7 - Inactive": "Inactive"
     },
     "cli": "Create basic CLI?",
-    "precommit_push_ope": "Pre-commit push operations (docs, test)",
+    "precommit_push_test": "Run tests before git push?",
+    "precommit_push_docs": "Generate docs before git push?",
     "git_user": "Git username",
     "git_branch": "Git default branch",
     "git_init": "Initialize the git repository?"

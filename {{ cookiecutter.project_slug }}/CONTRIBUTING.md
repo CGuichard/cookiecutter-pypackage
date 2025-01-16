@@ -227,7 +227,7 @@ Run the tests with _make_:
 make test
 ```
 
-{% if cookiecutter.precommit_push_ope -%}
+{% if cookiecutter.precommit_push_test and cookiecutter.python_min not in ["3.10"] -%}
 > Note: Tests are run before each push, failing the push if it fails.
 
 {% endif -%}
@@ -259,7 +259,7 @@ docs.
 make docs-live
 ```
 
-{% if cookiecutter.precommit_push_ope -%}
+{% if cookiecutter.precommit_push_docs -%}
 > Note: Documentation site is built before each push, failing the push if it fails.
 
 {% endif -%}

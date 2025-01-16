@@ -51,8 +51,7 @@ repos:
         types_or: [python, pyi]
         pass_filenames: false
         additional_dependencies: ["tox~=4.23", "tox-uv"]
-      {%- if cookiecutter.precommit_push_ope %}
-      {% if cookiecutter.python_min not in ["3.10"] -%} {#- FIXME: bug for these versions -#}
+      {%- if cookiecutter.precommit_push_test and cookiecutter.python_min not in ["3.10"] %}
       - id: test
         name: Test (python)
         entry: tox
@@ -61,7 +60,8 @@ repos:
         pass_filenames: false
         stages: [pre-push]
         additional_dependencies: ["tox~=4.23", "tox-uv"]
-      {% endif -%}
+      {%- endif %}
+      {%- if cookiecutter.precommit_push_docs %}
       - id: docs
         name: Generate docs (python)
         entry: tox -e docs

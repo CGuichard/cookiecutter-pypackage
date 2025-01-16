@@ -77,7 +77,8 @@ The input variables, with their default values (some auto generated) are:
 - `license`: choice of open source license
 - `development_status`: status of development for your project, for PyPI topic
 - `cli`: whether to create CLI or not
-- `precommit_push_ope`: add pre-push checks in pre-commit
+- `precommit_push_test`: whether to run tests before git push  or not
+- `precommit_push_docs`: whether to generate docs before git push or not
 - `git_user`: git username
 - `git_branch`: git default branch (Examples: main, master)
 - `git_init`: whether to init the git repository or not
