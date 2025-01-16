@@ -76,6 +76,7 @@ The input variables, with their default values (some auto generated) are:
 - `copyright_year`: year of the copyright, current year by default
 - `license`: choice of open source license
 - `development_status`: status of development for your project, for PyPI topic
+- `cli`: whether to create CLI or not
 - `precommit_push_ope`: Add pre-push checks in pre-commit.
 - `git_user`: Git username
 - `git_branch`: Git default branch (Examples: main, master)

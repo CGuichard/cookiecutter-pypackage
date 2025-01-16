@@ -17,7 +17,9 @@ requires-python = ">={{ cookiecutter.python_min }}"
 keywords = [
     "python",
     "package",
+    {%- if cookiecutter.cli %}
     "cli",
+    {%- endif %}
 ]
 classifiers = [
     "{{ cookiecutter.development_status }}",
@@ -53,10 +55,14 @@ classifiers = [
     "Topic :: Software Development :: Version Control :: Git",
     "Typing :: Typed",
 ]
+{% if cookiecutter.cli -%}
 dependencies = [
     "click~=8.1",
     "rich~=13.9",
 ]
+{% else -%}
+dependencies = []
+{% endif -%}
 dynamic = ["version"]
 
 [project.urls]
@@ -64,9 +70,11 @@ dynamic = ["version"]
 "Source" = "{{ cookiecutter.__git_repo }}"
 "Bug Tracker" = "{{ cookiecutter.__git_repo }}/issues"
 
+{% if cookiecutter.cli -%}
 [project.scripts]
 {{ cookiecutter.pkg_name.replace('_', '-') }} = "{{ cookiecutter.pkg_name }}._cli:main"
 
+{% endif -%}
 # -----------------------------------------------
 # Development dependencies
 

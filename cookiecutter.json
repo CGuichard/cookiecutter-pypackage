@@ -17,6 +17,7 @@
     "Development Status :: 6 - Mature",
     "Development Status :: 7 - Inactive"
   ],
+  "cli": false,
   "precommit_push_ope": false,
   "git_user": "myuser",
   "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
@@ -48,6 +49,7 @@
       "Development Status :: 6 - Mature": "Mature",
       "Development Status :: 7 - Inactive": "Inactive"
     },
+    "cli": "Create basic CLI?",
     "precommit_push_ope": "Pre-commit push operations (docs, test)",
     "git_user": "Git username",
     "git_repo": "Git repository url (no .git)",

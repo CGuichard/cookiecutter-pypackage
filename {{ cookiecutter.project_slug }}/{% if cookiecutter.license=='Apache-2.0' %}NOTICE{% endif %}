@@ -2,6 +2,7 @@
 
 This software is distributed under the Apache Software License (ASL) v2.0, see LICENSE
 file or http://www.apache.org/licenses/LICENSE-2.0 for details.
+{%- if cookiecutter.cli %}
 
 This software includes code from many other open source projects. See below for details
 about the license of each project.
@@ -23,3 +24,4 @@ The following components are provided under the BSD-3-Clause License (https://op
 See project link for details.
 
 - click: https://github.com/pallets/click
+{%- endif %}
