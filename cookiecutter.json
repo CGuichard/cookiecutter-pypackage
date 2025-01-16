@@ -52,7 +52,6 @@
     "cli": "Create basic CLI?",
     "precommit_push_ope": "Pre-commit push operations (docs, test)",
     "git_user": "Git username",
-    "git_repo": "Git repository url (no .git)",
     "git_branch": "Git default branch",
     "git_init": "Initialize the git repository?"
   }
