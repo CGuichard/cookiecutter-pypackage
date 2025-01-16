@@ -88,6 +88,7 @@ dev = [
     "tox~=4.23",
     "tox-uv",
     "watchdog~=6.0", # Script watch.py
+    { include-group = "tests" },
 ]
 lint = [
     "mypy==1.14",
