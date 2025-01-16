@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 1.2.0 (2025-01-17)
+
+### Enhancements
+
+- Quote pre-commit hooks rev
+- Make email optional
+- Make CLI creation optional
+- Include group tests in group dev
+- Separate precommit_push_ope as precommit_push_test and precommit_push_docs
+- Update lint rules ignore for tests
+- Update README.md license section
+- Update CONTRIBUTING.md and remove git ignore section
+
+### Documentation
+
+- Fix input variables inconsistent style in README.md
+
+### Internal
+
+- Remove git_repo unused prompt from cookiecutter.json
+
 ## 1.1.0 (2025-01-01)
 
 ### Enhancements
