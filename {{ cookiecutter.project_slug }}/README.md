@@ -69,7 +69,7 @@ and more generally to follow the guidelines articulated by our [Code of Conduct]
 
 Copyright &copy; {{ cookiecutter.copyright_year }}, {{ cookiecutter.author }}
 
-Distributed under the {{ cookiecutter.license }} license. See [LICENSE](LICENSE) for more information.
+{{ cookiecutter.project_name }} is licensed under the {{ cookiecutter.license }} license. A copy of this license is provided in the [LICENSE](./LICENSE) file.
 
 ## Acknowledgements
 
