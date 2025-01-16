@@ -177,7 +177,7 @@ ignore = [
 
 [tool.ruff.lint.extend-per-file-ignores]
 "scripts/**" = ["D101", "D102", "D103", "T201"]
-"tests/**" = ["INP001", "ANN201", "S101"]
+"tests/**" = ["ANN201", "ARG001", "INP001", "S101"]
 
 [tool.ruff.lint.flake8-annotations]
 allow-star-arg-any = true
