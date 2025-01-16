@@ -113,7 +113,9 @@ nav:
       - Usage: getting-started/usage.md
   - Learn:
       - learn/overview.md
+      {%- if cookiecutter.cli %}
       - CLI: learn/cli.md
+      {%- endif %}
   - Tutorials:
       - tutorials/overview.md
   - How-to guides:
