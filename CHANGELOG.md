@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 1.3.1 (2025-03-19)
+
+### Bug fixes
+
+- Config mkdocstrings-python filters for members
+
 ## 1.3.0 (2025-03-18)
 
 ### Enhancements
