@@ -76,7 +76,7 @@ jobs:
         with:
           version: ">=0.6.0"
       - name: Export dependencies
-        run: uv export --no-dev --no-emit-project --no-hashes > requirements.txt
+        run: uv export --no-dev --no-emit-project > requirements.txt
       - name: Prepare summary
         run: echo "_Audit dependencies_" >> SUMMARY.md
       - name: Run pip-audit
@@ -84,7 +84,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "## pip-audit" >> SUMMARY.md
-          uvx --quiet pip-audit -f markdown -r requirements.txt &>> SUMMARY.md
+          uvx --quiet pip-audit --disable-pip --format markdown --requirement requirements.txt &>> SUMMARY.md
       - name: Run libyear
         run: |
           echo "## libyear" >> SUMMARY.md
