@@ -20,10 +20,10 @@
   "cli": false,
   "precommit_push_test": false,
   "precommit_push_docs": false,
-  "git_user": "myuser",
-  "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
   "git_branch": "main",
+  "git_user": "myuser",
   "git_init": true,
+  "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
   "__prompts__": {
     "project_name": "Name of the project",
     "project_slug": "Slug of the project, lower-case and hyphen-style",
@@ -53,8 +53,8 @@
     "cli": "Create basic CLI?",
     "precommit_push_test": "Run tests before git push?",
     "precommit_push_docs": "Generate docs before git push?",
-    "git_user": "Git username",
     "git_branch": "Git default branch",
+    "git_user": "Git username",
     "git_init": "Initialize the git repository?"
   }
 }
