@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 1.3.0 (2025-03-18)
+
+### Enhancements
+
+- Update dependencies
+- Update ruff ignore list for tests
+- CI: update setup-uv actions
+
+### Bug fixes
+
+- Typo in CONTRIBUTING section 'Working on issues'
+- Remove tox skip_missing_interpreters unneeded by usage of tox-uv
+- CI: use requirements hashes to avoid pip resolution in audit job of check workflow
+
+### Documentation
+
+- Remove dropped input variable from README
+
+### Internal
+
+- Compute variables in cookiecutter.json for git repo path and origin
+- Change git questions order
+
 ## 1.2.1 (2025-01-17)
 
 ### Bug fixes
