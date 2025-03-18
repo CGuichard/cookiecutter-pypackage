@@ -128,7 +128,7 @@ commits and pull requests, by following the [GitHub autolink convention](https:/
 
 3. **Follow the [Getting started](#getting-started) section** for project setup.
 4. **Create a new branch** to work on.
-   Check our [branche naming convention](#branches).
+   Check our [branch naming convention](#branches).
 
    ```bash
    git checkout -b (fix-or-feat)/your-topic-name
