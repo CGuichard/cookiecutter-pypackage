@@ -72,7 +72,6 @@ The input variables, with their default values (some auto generated) are:
 - `description`: project single-line description
 - `author`: author firstname and lastname
 - `email`: author email
-- `version`: base version for the package, by default "0.0.0"
 - `copyright_year`: year of the copyright, current year by default
 - `license`: choice of open source license
 - `development_status`: status of development for your project, for PyPI topic
