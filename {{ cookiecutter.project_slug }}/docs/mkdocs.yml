@@ -91,6 +91,9 @@ plugins:
               ignore_init_summary: true
             docstring_section_style: list
             docstring_style: google
+            filters:
+              - "!^_"
+              - "^__"
             group_by_category: true
             heading_level: 1
             line_length: 88
