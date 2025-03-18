@@ -24,6 +24,8 @@
   "git_user": "myuser",
   "git_init": true,
   "__git_repo": "https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}",
+  "__git_repo_path": "{{ '/'.join(cookiecutter.__git_repo.split('/')[3:]) }}",
+  "__git_repo_origin": "git@github.com:{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}.git",
   "__prompts__": {
     "project_name": "Name of the project",
     "project_slug": "Slug of the project, lower-case and hyphen-style",

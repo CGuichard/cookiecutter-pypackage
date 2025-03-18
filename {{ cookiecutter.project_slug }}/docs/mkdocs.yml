@@ -5,7 +5,7 @@ site_author: "{{ cookiecutter.author }}"
 copyright: "Copyright &copy; {{ cookiecutter.copyright_year }}, {{ cookiecutter.author }}"
 
 # Repository
-repo_name: "{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}"
+repo_name: "{{ cookiecutter.__git_repo_path }}"
 repo_url: "{{ cookiecutter.__git_repo }}"
 edit_uri: edit/{{ cookiecutter.git_branch }}/docs/src
 
