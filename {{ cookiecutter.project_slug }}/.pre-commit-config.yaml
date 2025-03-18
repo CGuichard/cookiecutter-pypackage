@@ -29,7 +29,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "v4.1.0"
+    rev: "v4.4.1"
     hooks:
       - id: commitizen
       - id: commitizen-branch
@@ -37,7 +37,7 @@ repos:
         stages: [pre-push]
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: "v0.23"
+    rev: "v0.24"
     hooks:
       - id: validate-pyproject
 
@@ -50,7 +50,7 @@ repos:
         files: "^(src|tests)"
         types_or: [python, pyi]
         pass_filenames: false
-        additional_dependencies: ["tox~=4.23", "tox-uv"]
+        additional_dependencies: ["tox~=4.24", "tox-uv"]
       {%- if cookiecutter.precommit_push_test and cookiecutter.python_min not in ["3.10"] %}
       - id: test
         name: Test (python)
@@ -59,7 +59,7 @@ repos:
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["tox~=4.23", "tox-uv"]
+        additional_dependencies: ["tox~=4.24", "tox-uv"]
       {%- endif %}
       {%- if cookiecutter.precommit_push_docs %}
       - id: docs
@@ -69,5 +69,5 @@ repos:
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["tox~=4.23", "tox-uv"]
+        additional_dependencies: ["tox~=4.24", "tox-uv"]
       {%- endif %}

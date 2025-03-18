@@ -81,18 +81,18 @@ dynamic = ["version"]
 [dependency-groups]
 dev = [
     "build~=1.2",
-    "commitizen==4.1.0",
-    "pre-commit~=4.0",
+    "commitizen==4.4.1",
+    "pre-commit~=4.2",
     "pre-commit-uv",
     "rich~=13.9", # Script watch.py
-    "tox~=4.23",
+    "tox~=4.24",
     "tox-uv",
     "watchdog~=6.0", # Script watch.py
     { include-group = "tests" },
 ]
 lint = [
-    "mypy==1.14",
-    "ruff==0.9.2",
+    "mypy==1.15",
+    "ruff==0.11.0",
 ]
 tests = [
     "pytest-cov~=6.0",
@@ -106,13 +106,13 @@ docs = [
     "mkdocs-click~=0.8", # CLI reference
     "mkdocs-gen-files~=0.5", # API reference
     "mkdocs-literate-nav~=0.6", # API reference
-    "mkdocs-material~=9.5",
+    "mkdocs-material~=9.6",
     "mkdocs-section-index~=0.3",
-    "mkdocstrings~=0.27", # API reference
-    "mkdocstrings-python~=1.13", # API reference
+    "mkdocstrings~=0.29", # API reference
+    "mkdocstrings-python~=1.16", # API reference
     "mkdocs~=1.6",
-    "ruff==0.9.2", # API reference - code formatting
-    "termynal~=0.12", # Animated terminals
+    "ruff==0.11.0", # API reference - code formatting
+    "termynal~=0.13", # Animated terminals
 ]
 
 # -----------------------------------------------
