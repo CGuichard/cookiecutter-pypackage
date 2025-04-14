@@ -58,7 +58,7 @@ classifiers = [
 {% if cookiecutter.cli -%}
 dependencies = [
     "click~=8.1",
-    "rich~=13.9",
+    "rich~=14.0",
 ]
 {% else -%}
 dependencies = []
@@ -81,21 +81,21 @@ dynamic = ["version"]
 [dependency-groups]
 dev = [
     "build~=1.2",
-    "commitizen==4.4.1",
+    "commitizen==4.6.0",
     "pre-commit~=4.2",
     "pre-commit-uv",
-    "rich~=13.9", # Script watch.py
-    "tox~=4.24",
+    "rich~=14.0", # Script watch.py
+    "tox~=4.25",
     "tox-uv",
     "watchdog~=6.0", # Script watch.py
     { include-group = "test" },
 ]
 lint = [
     "mypy==1.15",
-    "ruff==0.11.0",
+    "ruff==0.11.7",
 ]
 test = [
-    "pytest-cov~=6.0",
+    "pytest-cov~=6.1",
     "pytest-html~=4.1",
     "pytest-randomly~=3.16", # Randomize testing order
     "pytest-sugar~=1.0", # Better output
@@ -103,7 +103,7 @@ test = [
 ]
 docs = [
     "mike~=2.1",
-    "mkdocs-click~=0.8", # CLI reference
+    "mkdocs-click~=0.9", # CLI reference
     "mkdocs-gen-files~=0.5", # API reference
     "mkdocs-literate-nav~=0.6", # API reference
     "mkdocs-material~=9.6",
@@ -111,7 +111,7 @@ docs = [
     "mkdocstrings~=0.29", # API reference
     "mkdocstrings-python~=1.16", # API reference
     "mkdocs~=1.6",
-    "ruff==0.11.0", # API reference - code formatting
+    "ruff==0.11.7", # API reference - code formatting
     "termynal~=0.13", # Animated terminals
 ]
 
