@@ -195,7 +195,7 @@ jobs:
         run: |
           uvx --from "coverage[toml]" coverage combine all-reports/**/coverage-py*
           uvx --from "coverage[toml]" coverage xml -o coverage.xml || true
-          uvx --from "coverage[toml]" coverage html -d coverage-html || true
+          uvx --from "coverage[toml]" coverage html -d coverage-site || true
           uvx --from "coverage[toml]" coverage report --format=markdown >> coverage.md || true
       - name: Publish Coverage Results
         uses: insightsengineering/coverage-action@v2
@@ -207,7 +207,7 @@ jobs:
           togglable-report: true
           diff: true
           diff-branch: main
-          diff-storage: gh-test-coverage
+          diff-storage: gh-tests-coverages
       - name: Publish job summary report
         run: |
           echo "## Code coverage" >> $GITHUB_STEP_SUMMARY
@@ -219,4 +219,4 @@ jobs:
           path: |
             junit-report.xml
             coverage.xml
-            coverage-html
+            coverage-site

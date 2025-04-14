@@ -10,7 +10,7 @@
 ![Security](https://img.shields.io/badge/security-bandit,%20pip--audit-purple?style=flat-square)
 [![PyPI - Version](https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}?style=flat-square)](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
 [![Tests](https://img.shields.io/github/actions/workflow/status/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}/check.yml?branch={{ cookiecutter.git_branch }}&label=Test)]({{ cookiecutter.__git_repo }}/actions/workflows/check.yml)
-[![Coverage](https://raw.githubusercontent.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}/refs/heads/gh-test-coverage/data/{{ cookiecutter.git_branch }}/badge.svg)](https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}/actions/workflows/check.yml)
+[![Coverage](https://raw.githubusercontent.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}/refs/heads/gh-tests-coverages/data/{{ cookiecutter.git_branch }}/badge.svg)](https://github.com/{{ cookiecutter.git_user }}/{{ cookiecutter.project_slug }}/actions/workflows/check.yml)
 
 [Pull Request]({{ cookiecutter.__git_repo }}/pulls) **·**
 [Bug Report]({{ cookiecutter.__git_repo }}/issues/new?template=bug_report.md) **·**
