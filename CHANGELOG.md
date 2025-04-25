@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 1.4.0 (2025-04-25)
+
+### Enhancements
+
+- Update dependencies
+- Rename dependency group 'tests' to 'test'
+- Lint use force-exclude, exit non-zero on format
+- Ruff and mypy exclude scripts
+- CI: rename test coverage branch and html dir
+
+### Reverted
+
+- Remove test dependencies from dev
+
 ## 1.3.1 (2025-03-19)
 
 ### Bug fixes
