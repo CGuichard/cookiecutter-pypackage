@@ -22,7 +22,6 @@ keywords = [
     {%- endif %}
 ]
 classifiers = [
-    "{{ cookiecutter.development_status }}",
     "Intended Audience :: Developers",
     "Environment :: Console",
     "Framework :: Hatch",

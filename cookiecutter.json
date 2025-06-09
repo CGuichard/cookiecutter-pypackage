@@ -8,15 +8,6 @@
   "email": "",
   "copyright_year": "{% now 'utc', '%Y' %}",
   "license": ["MIT", "Apache-2.0", "GPL-3.0"],
-  "development_status": [
-    "Development Status :: 1 - Planning",
-    "Development Status :: 2 - Pre-Alpha",
-    "Development Status :: 3 - Alpha",
-    "Development Status :: 4 - Beta",
-    "Development Status :: 5 - Production/Stable",
-    "Development Status :: 6 - Mature",
-    "Development Status :: 7 - Inactive"
-  ],
   "cli": false,
   "precommit_push_test": false,
   "precommit_push_docs": false,
@@ -41,16 +32,6 @@
       "MIT": "MIT License",
       "Apache-2.0": "Apache Software License (Apache 2.0)",
       "GPL-3.0": "GNU General Public License v3 (GPLv3)"
-    },
-    "development_status": {
-      "__prompt__": "What's your project development status?",
-      "Development Status :: 1 - Planning": "Planning",
-      "Development Status :: 2 - Pre-Alpha": "Pre-Alpha",
-      "Development Status :: 3 - Alpha": "Alpha",
-      "Development Status :: 4 - Beta": "Beta",
-      "Development Status :: 5 - Production/Stable": "Production/Stable",
-      "Development Status :: 6 - Mature": "Mature",
-      "Development Status :: 7 - Inactive": "Inactive"
     },
     "cli": "Create basic CLI?",
     "precommit_push_test": "Run tests before git push?",
