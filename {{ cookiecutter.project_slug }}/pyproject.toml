@@ -14,20 +14,8 @@ authors = [
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">={{ cookiecutter.python_min }}"
-keywords = [
-    "python",
-    "package",
-    {%- if cookiecutter.cli %}
-    "cli",
-    {%- endif %}
-]
+keywords = []
 classifiers = [
-    "Intended Audience :: Developers",
-    "Environment :: Console",
-    "Framework :: Hatch",
-    "Framework :: MkDocs",
-    "Framework :: Pytest",
-    "Framework :: tox",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
