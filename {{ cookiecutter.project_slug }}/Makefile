@@ -40,10 +40,10 @@ build: ## Build wheel and tar.gz in 'dist/'.
 	@$(UV) build
 
 install: ## Install in the python venv.
-	@$(UV) sync --no-dev --no-editable
+	@$(UV) sync --all-extras --no-dev --no-editable
 
 install-dev: ## Install in editable mode inside the python venv with dev group dependencies.
-	@$(UV) sync
+	@$(UV) sync --all-extras
 
 install-all: ## Install in editable mode inside the python venv with all extras and groups dependencies.
 	@$(UV) sync --all-extras --all-groups
