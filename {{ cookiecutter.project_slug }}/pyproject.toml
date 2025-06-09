@@ -46,7 +46,6 @@ classifiers = [
 {% if cookiecutter.cli -%}
 dependencies = [
     "click~=8.1",
-    "rich~=14.0",
 ]
 {% else -%}
 dependencies = []
@@ -164,6 +163,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
+"_cli.py" = ["T201"]
 "tests/**" = ["ANN201", "ARG001", "INP001", "PLR0913", "S101"]
 
 [tool.ruff.lint.flake8-annotations]
