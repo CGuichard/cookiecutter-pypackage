@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.0.0 (2025-06-09)
+
+### BREAKING CHANGES
+
+- Remove rich for CLI
+- Remove cookiecutter development_status variable
+
+### Enhancements
+
+- Update click version
+- Update development dependencies
+- Move project.scripts in pyproject.toml
+- Makefile: re-organize targets
+- Makefile: add --all-extras to uv sync in install and install-dev
+- Makefile: remove pre-commit-install, merge in setup
+- CI: update GitHub Actions
+
+### Bug fixes
+
+- Project metadata name use project_slug instead of pkg_name
+- Project metadata use license SPDX and license-files
+- Clean pyproject.toml keywords and classifiers
+- Update lint ignored rules for tests after updates
+- Tests: update test_cli after click update
+- Tests: add annotations
+- Docs: fix help.md missing sentence end
+- Docs: update mkdocs config
+
 ## 1.4.0 (2025-04-25)
 
 ### Enhancements
