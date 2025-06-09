@@ -68,24 +68,24 @@ dynamic = ["version"]
 [dependency-groups]
 dev = [
     "build~=1.2",
-    "commitizen==4.6.0",
+    "commitizen==4.8.3",
     "pre-commit~=4.2",
     "pre-commit-uv",
     "rich~=14.0", # Script watch.py
-    "tox~=4.25",
+    "tox~=4.26",
     "tox-uv",
     "watchdog~=6.0", # Script watch.py
 ]
 lint = [
-    "mypy==1.15",
-    "ruff==0.11.7",
+    "mypy==1.16",
+    "ruff==0.11.13",
 ]
 test = [
     "pytest-cov~=6.1",
     "pytest-html~=4.1",
     "pytest-randomly~=3.16", # Randomize testing order
     "pytest-sugar~=1.0", # Better output
-    "pytest~=8.3",
+    "pytest~=8.4",
 ]
 docs = [
     "mike~=2.1",
@@ -97,7 +97,7 @@ docs = [
     "mkdocstrings~=0.29", # API reference
     "mkdocstrings-python~=1.16", # API reference
     "mkdocs~=1.6",
-    "ruff==0.11.7", # API reference - code formatting
+    "ruff==0.11.13", # API reference - code formatting
     "termynal~=0.13", # Animated terminals
 ]
 
