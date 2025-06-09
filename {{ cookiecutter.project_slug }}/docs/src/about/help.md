@@ -38,7 +38,7 @@ Here are some tips to help troubleshoot issues effectively:
 
 You can "watch" {{ cookiecutter.project_name }} in GitHub (by clicking the "watch" button at the top right):
 <{{ cookiecutter.__git_repo }}>. Select "Releases only" to receive notifications whenever
-there's a new release. A release content is always detailed, so that you may know
+there's a new release. A release content is always detailed, so that you may know what's new.
 
 ## Helping us?
 
