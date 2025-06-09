@@ -89,20 +89,18 @@ plugins:
           options:
             docstring_options:
               ignore_init_summary: true
+              returns_multiple_items: false
             docstring_section_style: list
             docstring_style: google
             filters:
               - "!^_"
               - "^__"
-            group_by_category: true
             heading_level: 1
             line_length: 88
             merge_init_into_class: true
             separate_signature: true
-            show_bases: true
             show_category_heading: true
             show_root_heading: true
-            show_root_toc_entry: true
             show_signature_annotations: true
             show_source: false
             summary: true
