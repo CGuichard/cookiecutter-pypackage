@@ -52,16 +52,16 @@ dependencies = []
 {% endif -%}
 dynamic = ["version"]
 
+{% if cookiecutter.cli -%}
+[project.scripts]
+{{ cookiecutter.project_slug }} = "{{ cookiecutter.pkg_name }}._cli:main"
+
+{% endif -%}
 [project.urls]
 "Homepage" = "{{ cookiecutter.__git_repo }}"
 "Source" = "{{ cookiecutter.__git_repo }}"
 "Bug Tracker" = "{{ cookiecutter.__git_repo }}/issues"
 
-{% if cookiecutter.cli -%}
-[project.scripts]
-{{ cookiecutter.pkg_name.replace('_', '-') }} = "{{ cookiecutter.pkg_name }}._cli:main"
-
-{% endif -%}
 # -----------------------------------------------
 # Development dependencies
 
