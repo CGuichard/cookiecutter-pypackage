@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 # Package infos
 
 [project]
-name = "{{ cookiecutter.pkg_name }}"
+name = "{{ cookiecutter.project_slug }}"
 description = "{{ cookiecutter.description }}"
 authors = [
     { name = "{{ cookiecutter.author }}"{%- if cookiecutter.email %}, email = "{{ cookiecutter.email }}"{% endif %} },
