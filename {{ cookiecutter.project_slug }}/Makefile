@@ -8,7 +8,7 @@ TOX=$(UV) run tox -qq
 PRE_COMMIT=$(UV) run pre-commit
 COMMITIZEN=$(UV) run cz
 
-.PHONY: default help pipeline setup clean pre-commit pre-commit-install
+.PHONY: default help pipeline setup clean pre-commit
 .PHONY: release shell build install install-dev install-all
 .PHONY: lint lint-watch test test-report docs docs-live docs-serve
 
@@ -18,7 +18,8 @@ default: help
 
 pipeline: build lint test docs ## Run build, lint, test, docs.
 
-setup: install-dev pre-commit-install ## Run 'install-dev' and 'pre-commit-install'
+setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
+	@$(PRE_COMMIT) install --install-hooks
 
 clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
 	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
@@ -27,9 +28,6 @@ clean: ## Clean temporary files, like python '__pycache__', dist build, docs out
 pre-commit: ## Run all pre-commit hooks.
 	@$(PRE_COMMIT) run --all-files
 	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
-
-pre-commit-install: ## Install all pre-commit hooks.
-	@$(PRE_COMMIT) install --install-hooks
 
 release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@$(COMMITIZEN) bump --yes --changelog
@@ -76,7 +74,7 @@ docs-serve: docs ## Start http server to serve the docs.
 
 # ======================================================= #
 
-HELP_COLUMN=18
+HELP_COLUMN=11
 help: ## Show this help.
 	@printf "\033[1m################\n#     Help     #\n################\033[0m\n"
 	@awk 'BEGIN {FS = ":.*##@"; printf "\n"} /^##@/ { printf "%s\n", substr($$0, 5) } ' $(MAKEFILE_LIST)

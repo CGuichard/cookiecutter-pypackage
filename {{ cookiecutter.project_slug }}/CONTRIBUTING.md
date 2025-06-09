@@ -290,12 +290,6 @@ Some tools will also run for yaml, json, or markdown files etc... The commitizen
 tool will also enforce conventional commit usage, that will be discussed in
 the [Commit](#commit) section.
 
-To activate our Git Hooks, please run the following commands:
-
-```bash
-make pre-commit-install
-```
-
 Our hooks needs the following dependencies:
 
 - Python (≥{{ cookiecutter.python_min }})
