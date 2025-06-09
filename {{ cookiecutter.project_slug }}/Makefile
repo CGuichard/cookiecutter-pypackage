@@ -8,8 +8,8 @@ TOX=$(UV) run tox -qq
 PRE_COMMIT=$(UV) run pre-commit
 COMMITIZEN=$(UV) run cz
 
-.PHONY: default help pipeline setup clean pre-commit
-.PHONY: release shell build install install-dev install-all
+.PHONY: default help pipeline setup release clean shell
+.PHONY: build install install-dev install-all pre-commit
 .PHONY: lint lint-watch test test-report docs docs-live docs-serve
 
 # ======================================================= #
@@ -21,17 +21,13 @@ pipeline: build lint test docs ## Run build, lint, test, docs.
 setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
 	@$(PRE_COMMIT) install --install-hooks
 
-clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
-	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
-	@rm -rf dist tests-reports docs/build .*_cache
-
-pre-commit: ## Run all pre-commit hooks.
-	@$(PRE_COMMIT) run --all-files
-	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
-
 release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@$(COMMITIZEN) bump --yes --changelog
 	@./scripts/update_latest_tag_msg.sh
+
+clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
+	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
+	@rm -rf dist tests-reports docs/build .*_cache
 
 shell: ## Open Python shell.
 	@$(PYTHON)
@@ -47,6 +43,10 @@ install-dev: ## Install in editable mode inside the python venv with dev group d
 
 install-all: ## Install in editable mode inside the python venv with all extras and groups dependencies.
 	@$(UV) sync --all-extras --all-groups
+
+pre-commit: ## Run all pre-commit hooks.
+	@$(PRE_COMMIT) run --all-files
+	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
 
 lint: ## Lint python source code.
 	@$(TOX) -e lint
