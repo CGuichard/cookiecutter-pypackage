@@ -9,14 +9,14 @@ from {{ cookiecutter.pkg_name }}._cli import main
 runner = CliRunner()
 
 
-def test_cli():
+def test_cli() -> None:
     """Running CLI without argument print help."""
     result = runner.invoke(main)
     assert result.exit_code == 0
     assert result.stdout.startswith("Usage:")
 
 
-def test_cli_version():
+def test_cli_version() -> None:
     """Running CLI with arg "version" print package name and version number."""
     m = metadata("{{ cookiecutter.pkg_name }}")
     pkg_name = m["Name"]
