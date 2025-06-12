@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.0.1 (2025-06-13)
+
+### Bug fixes
+
+- Remove markdown bold in git tag message by make release
+
 ## 2.0.0 (2025-06-09)
 
 ### BREAKING CHANGES
