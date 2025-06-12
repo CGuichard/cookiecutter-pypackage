@@ -48,9 +48,13 @@ if __name__ == "__main__":
 
     # Format content to be compatible as git tag body
     if args.tag_msg:
+        # Change markdown title
         content = latest_release_content.replace(
             latest_version_match.group(), f"## Version {latest_version}"
         )
+        # Remove bold
+        content = content.replace("**", "")
+        # Generate sections
         for m in MD_HEADER.finditer(content):
             header_level = len(m.group(1))
             header = m.group(2)
