@@ -56,7 +56,7 @@ We recommend a Linux-based distribution. You will need the following tools on yo
   in the project life-cycle.
 - [Python](https://www.python.org/) (≥{{ cookiecutter.python_min }}): language of the project,
   you'll need the interpreter.
-- [uv](https://docs.astral.sh/uv/) (≥0.5.0): package and project manager for Python.
+- [uv](https://docs.astral.sh/uv/) (≥0.8.0): package and project manager for Python.
 
 ### Clone the repository
 
