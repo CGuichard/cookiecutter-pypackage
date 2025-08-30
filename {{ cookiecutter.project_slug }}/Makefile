@@ -10,7 +10,7 @@ COMMITIZEN=$(UV) run cz
 
 .PHONY: default help pipeline setup release clean shell
 .PHONY: build install install-dev install-all pre-commit
-.PHONY: lint lint-watch test test-report docs docs-serve docs-live
+.PHONY: lint lint-watch test docs docs-serve docs-live
 
 # ======================================================= #
 
@@ -56,11 +56,6 @@ lint-watch: ## Watch for src Python files changes and run `make lint`.
 
 test: ## Invoke tox to run automated tests.
 	@$(TOX)
-
-test-report: ## Start http server to serve the test report and coverage.
-	@printf "Test report: http://localhost:9000\n"
-	@printf "Coverage report: http://localhost:9000/coverage-html\n"
-	@$(PYTHON) -m http.server -b 0.0.0.0 -d tests-reports 9000 > /dev/null
 
 docs: ## Build the docs.
 	@$(TOX) -e docs
