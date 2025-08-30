@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Run Commitizen
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Run build
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Build docs with tox
@@ -74,7 +74,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
       - name: Export dependencies
         run: uv export --no-dev --no-emit-project > requirements.txt
       - name: Prepare summary
@@ -111,7 +111,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - uses: actions/cache@v4
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Run tests
@@ -168,7 +168,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
-          version: ">=0.7.0"
+          version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Download all tests-reports
