@@ -67,13 +67,13 @@ The input variables, with their default values (some auto generated) are:
 
 - `project_name`: name of the project
 - `project_slug`: slug of the project, lower-case and hyphen-style
-- `pkg_name`: python-friendly name of the package. By default, based on the project name
 - `python_min`: minimum version of Python required, by default "3.10"
+- `pkg_name`: python-friendly name of the package. By default, based on the project name
 - `description`: project single-line description
 - `author`: author firstname and lastname
 - `email`: author email
-- `copyright_year`: year of the copyright, current year by default
 - `license`: choice of open source license
+- `copyright_year`: year of the copyright, current year by default
 - `cli`: whether to create CLI or not
 - `precommit_push_test`: whether to run tests before git push  or not
 - `precommit_push_docs`: whether to generate docs before git push or not
