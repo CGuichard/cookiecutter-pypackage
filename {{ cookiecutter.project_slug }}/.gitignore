@@ -10,6 +10,7 @@ __pycache__
 /uv.lock
 
 # Unit test / coverage reports
+/.coverage
 /tests-reports
 
 # Docs

@@ -182,7 +182,6 @@ convention = "google"
 minversion = "8.0"
 required_plugins = [
     "pytest-cov",
-    "pytest-html",
 ]
 testpaths = [
     "src",
@@ -190,24 +189,17 @@ testpaths = [
 ]
 addopts = [
     "--doctest-modules",
-    "--junit-xml=tests-reports/junit-report.xml",
     # pytest-cov
     "--cov=src",
     "--cov-config=pyproject.toml",
     "--cov-report=term-missing",
-    "--cov-report=html:tests-reports/coverage-html",
-    "--cov-report=xml:tests-reports/coverage.xml",
-    # pytest-html
-    "--html=tests-reports/index.html",
-    "--self-contained-html",
 ]
 
 [tool.coverage.run]
 branch = true
 parallel = true
-data_file = "tests-reports/coverage"
 omit = [
-    "*/__main__.py",
+    "src/*/__main__.py",
     "tests/*",
 ]
 
