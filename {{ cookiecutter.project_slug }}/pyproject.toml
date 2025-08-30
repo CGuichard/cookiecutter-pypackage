@@ -163,7 +163,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
-"_cli.py" = ["T201"]
+"src/*/_cli.py" = ["T201"]
 "tests/**" = ["ANN201", "ARG001", "INP001", "PLR0913", "PLR2004", "S101"]
 
 [tool.ruff.lint.flake8-annotations]
