@@ -219,6 +219,7 @@ exclude_lines = [
 
 [tool.commitizen]
 version_provider = "scm"
+version_scheme = "pep440"
 annotated_tag = true
 changelog_incremental = true
 change_type_order = ["Features", "Bug fixes", "Perf", "Internal"]
