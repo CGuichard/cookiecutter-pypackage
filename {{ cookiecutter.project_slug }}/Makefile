@@ -10,13 +10,13 @@ COMMITIZEN=$(UV) run cz
 
 .PHONY: default help pipeline setup release clean shell
 .PHONY: build install install-dev install-all pre-commit
-.PHONY: lint lint-watch test test-report docs docs-live docs-serve
+.PHONY: lint lint-watch test test-report docs docs-serve docs-live
 
 # ======================================================= #
 
 default: help
 
-pipeline: build lint test docs ## Run build, lint, test, docs.
+pipeline: clean build lint test docs ## Run clean, build, lint, test, docs.
 
 setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
 	@$(PRE_COMMIT) install --install-hooks
@@ -65,12 +65,12 @@ test-report: ## Start http server to serve the test report and coverage.
 docs: ## Build the docs.
 	@$(TOX) -e docs
 
-docs-live: ## Live-edition of the docs.
-	@$(TOX) -e docs -- serve
-
 docs-serve: docs ## Start http server to serve the docs.
 	@printf "Docs: http://localhost:8000\n"
 	@$(PYTHON) -m http.server -b 0.0.0.0 -d docs/build/html 8000 > /dev/null
+
+docs-live: ## Live-edition of the docs.
+	@$(TOX) -e docs -- serve
 
 # ======================================================= #
 
