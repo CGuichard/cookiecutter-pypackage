@@ -156,7 +156,7 @@ select = [
     "S", "SIM", "SLF", "SLOT", "T10", "T20", "TC", "TD", "TID", "YTT",
 ]
 ignore = [
-    "D105", "D107", "D203", "D213", "D417",
+    "D105", "D107", "D203", "D212", "D417",
     # Formatter compatibility (https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules)
     "W191", "E111", "E114", "E117", "D206", "D300", "Q000", "Q001", "Q002", "Q003",
     "COM812", "COM819", "ISC001", "ISC002",
