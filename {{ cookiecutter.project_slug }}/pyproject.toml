@@ -1,5 +1,9 @@
 [build-system]
+{% if cookiecutter.version == "pyproject" -%}
+requires = ["hatchling >= 1.27.0"]
+{% elif cookiecutter.version == "vcs" -%}
 requires = ["hatchling >= 1.27.0", "hatch-vcs >= 0.5.0"]
+{% endif -%}
 build-backend = "hatchling.build"
 
 # -----------------------------------------------
@@ -8,6 +12,9 @@ build-backend = "hatchling.build"
 [project]
 name = "{{ cookiecutter.project_slug }}"
 description = "{{ cookiecutter.description }}"
+{% if cookiecutter.version == "pyproject" -%}
+version = "0.0.0"
+{% endif -%}
 authors = [
     { name = "{{ cookiecutter.author }}"{%- if cookiecutter.email %}, email = "{{ cookiecutter.email }}"{% endif %} },
 ]
@@ -43,14 +50,16 @@ classifiers = [
     "Topic :: Software Development :: Version Control :: Git",
     "Typing :: Typed",
 ]
-{% if cookiecutter.cli -%}
+{%- if cookiecutter.cli %}
 dependencies = [
     "click~=8.2",
 ]
-{% else -%}
+{%- else %}
 dependencies = []
-{% endif -%}
+{%- endif %}
+{%- if cookiecutter.version == "vcs" %}
 dynamic = ["version"]
+{%- endif %}
 
 {% if cookiecutter.cli -%}
 [project.scripts]
@@ -107,6 +116,7 @@ docs = [
 [tool.hatch.build]
 skip-excluded-dirs = true
 
+{% if cookiecutter.version == "vcs" -%}
 [tool.hatch.version]
 source = "vcs"
 fallback-version = "0.0.0"
@@ -114,6 +124,7 @@ fallback-version = "0.0.0"
 [tool.hatch.version.raw-options]
 version_scheme = "python-simplified-semver"
 
+{% endif -%}
 # -----------------------------------------------
 # Linters
 
@@ -218,7 +229,11 @@ exclude_lines = [
 # Others
 
 [tool.commitizen]
+{% if cookiecutter.version == "pyproject" -%}
+version_provider = "pep621"
+{% elif cookiecutter.version == "vcs" -%}
 version_provider = "scm"
+{% endif -%}
 version_scheme = "pep440"
 annotated_tag = true
 changelog_incremental = true

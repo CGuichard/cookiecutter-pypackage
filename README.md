@@ -69,6 +69,9 @@ The input variables, with their default values (some auto generated) are:
 - `project_slug`: slug of the project, lower-case and hyphen-style
 - `python_min`: minimum version of Python required, by default "3.10"
 - `pkg_name`: python-friendly name of the package. By default, based on the project name
+- `version`: choose how the package version is resolved
+  - Use the Version Control System, like tags from Git.
+  - In `pyproject.toml` use the field `project.version`
 - `description`: project single-line description
 - `author`: author firstname and lastname
 - `email`: author email
