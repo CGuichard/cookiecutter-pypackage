@@ -19,9 +19,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-t",
-        "--tag-msg",
+        "--plain-text",
         action="store_true",
-        help="Print release message for git tag.",
+        help="Print release message for plain text.",
     )
     parser.add_argument(
         "-g",
@@ -46,8 +46,8 @@ if __name__ == "__main__":
         sys.exit(-1)
     latest_version = latest_version_match.group(1)
 
-    # Format content to be compatible as git tag body
-    if args.tag_msg:
+    # Format content for plain text
+    if args.plain_text:
         # Change markdown title
         content = latest_release_content.replace(
             latest_version_match.group(), f"## Version {latest_version}"
