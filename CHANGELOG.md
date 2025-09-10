@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.1.0 (2025-09-11)
+
+### Enhancements
+
+- Update dev dependencies
+- Rename script get_latest_release_notes.py option --tag-msg as --plain-text
+- Add choice between resolving project version from git tag or pyproject.toml field
+- More explicit pyproject.toml commitizen version scheme
+- More explicit pyproject.toml ruff ignore path
+- Lint: change docstring style for multi-line summary
+- Test: move pytest reporting from config to call command in tox
+- Make: move docs-live target, add clean to pipeline
+
+### Bug fixes
+
+- Docs: update uv recommended version in CONTRIBUTING.md
+- Make: remove test-report Makefile target
+
+### Internal
+
+- Change cookiecutter vars order
+
 ## 2.0.1 (2025-06-13)
 
 ### Bug fixes
