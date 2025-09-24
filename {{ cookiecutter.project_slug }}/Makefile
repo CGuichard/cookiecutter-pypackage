@@ -27,7 +27,7 @@ release: ## Bump version, create tag and update 'CHANGELOG.md'.
 
 clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
 	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
-	@rm -rf dist tests-reports docs/build .*_cache
+	@rm -rf dist .coverage tests-reports docs/build .*_cache
 
 shell: ## Open Python shell.
 	@$(PYTHON)
