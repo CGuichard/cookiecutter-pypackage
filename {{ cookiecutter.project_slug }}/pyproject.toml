@@ -174,7 +174,9 @@ ignore = [
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
+{% if cookiecutter.cli -%}
 "src/*/_cli.py" = ["T201"]
+{% endif -%}
 "tests/**" = ["ANN201", "ARG001", "INP001", "PLR0913", "PLR2004", "S101"]
 
 [tool.ruff.lint.flake8-annotations]
