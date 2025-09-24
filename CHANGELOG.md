@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.1.1 (2025-09-24)
+
+### Bug fixes
+
+- Remove lint ignore rules for '_cli.py' if no CLI generated
+- Make: clean target remove .coverage
+
 ## 2.1.0 (2025-09-11)
 
 ### Enhancements
