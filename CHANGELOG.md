@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.2.1 (2025-10-06)
+
+### Bug fixes
+
+- Invalid syntax in check github workflow
+
 ## 2.2.0 (2025-10-06)
 
 ### Enhancements
