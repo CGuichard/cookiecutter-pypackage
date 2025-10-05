@@ -138,6 +138,8 @@ jobs:
         {%- elif cookiecutter.python_min == "3.13" %}
         python-version: ["3.13"]
         {%- endif %}
+    env:
+      COVERAGE_FILE: tests-reports/coverage-data
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -145,8 +147,12 @@ jobs:
           version: ">=0.8.0"
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
+          python-version: ${{ matrix.python-version }}
       - name: Run tests
-        run: uvx --python ${{ "{{ matrix.python-version }}" }} --with tox-uv --with tox-gh-actions tox
+        run: |
+          uv run --group test pytest \
+            --junit-xml=tests-reports/junit-report.xml \
+            --cov-report=xml:tests-reports/coverage.xml
       - name: Upload test and coverage reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -193,7 +199,7 @@ jobs:
             all-reports/**/junit-report.xml
       - name: Combine coverage reports
         run: |
-          uvx --from "coverage[toml]" coverage combine all-reports/**/coverage-py*
+          uvx --from "coverage[toml]" coverage combine all-reports/**/coverage-data
           uvx --from "coverage[toml]" coverage xml -o coverage.xml || true
           uvx --from "coverage[toml]" coverage html -d coverage-site || true
           uvx --from "coverage[toml]" coverage report --format=markdown >> coverage.md || true
