@@ -46,7 +46,7 @@ jobs:
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: py-dist
+          name: build
           path: dist/
 
   build-docs:
