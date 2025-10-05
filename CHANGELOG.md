@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 2.2.0 (2025-10-06)
+
+### Enhancements
+
+- CI: add SBOM in check and release workflows
+
+### Bug fixes
+
+- CI: rename build artifact from 'py-dist' to 'build'
+- CI: correct test execution and report
+- CI: correct pip-audit and libyear calls
+
 ## 2.1.1 (2025-09-24)
 
 ### Bug fixes
