@@ -146,8 +146,8 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ "{{ hashFiles('.pre-commit-config.yaml') }}" }}
-      - name: Install dev dependencies
-        run: uv sync
+      - name: Install project and dev dependencies
+        run: uv sync --all-extras
       - name: Run pre-commit
         run: uv run pre-commit run --all-files
 
