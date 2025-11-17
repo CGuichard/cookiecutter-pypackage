@@ -29,11 +29,11 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "v4.9.1"
+    rev: "v4.10.0"
     hooks:
       - id: commitizen
       - id: commitizen-branch
-        args: [--rev-range, HEAD]
+        args: ["--rev-range", "HEAD"]
         stages: [pre-push]
 
   - repo: https://github.com/abravalheri/validate-pyproject
@@ -43,31 +43,46 @@ repos:
 
   - repo: local
     hooks:
-      - id: lint
-        name: Lint source code (python)
-        entry: tox -e lint
+      - id: ruff-format
+        name: ruff format
+        entry: uv run --quiet --group lint ruff format
         language: python
         files: "^(src|tests)"
         types_or: [python, pyi]
-        pass_filenames: false
-        additional_dependencies: ["tox~=4.30", "tox-uv"]
-      {%- if cookiecutter.precommit_push_test and cookiecutter.python_min not in ["3.10"] %}
-      - id: test
-        name: Test (python)
-        entry: tox
+        additional_dependencies: ["uv~=0.9.0"]
+      - id: ruff-check
+        name: ruff check
+        entry: uv run --quiet --group lint ruff check
+        args: ["--fix"]
+        language: python
+        files: "^src"
+        types_or: [python, pyi]
+        additional_dependencies: ["uv~=0.9.0"]
+      - id: mypy
+        name: mypy (static type checker)
+        entry: uv run --quiet --group lint mypy
+        language: python
+        files: "^src"
+        types_or: [python, pyi]
+        additional_dependencies: ["uv~=0.9.0"]
+      {%- if cookiecutter.precommit_push_test %}
+      - id: test-matrix
+        name: test matrix
+        entry: uv run --quiet --group test tox -qq
         language: python
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["tox~=4.30", "tox-uv"]
+        additional_dependencies: ["uv~=0.9.0"]
       {%- endif %}
       {%- if cookiecutter.precommit_push_docs %}
-      - id: docs
-        name: Generate docs (python)
-        entry: tox -e docs
+      - id: mkdocs-build
+        name: build documentation
+        entry: uv run --quiet --group docs --directory docs mkdocs
+        args: ["build"]
         language: python
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["tox~=4.30", "tox-uv"]
+        additional_dependencies: ["uv~=0.9.0"]
       {%- endif %}

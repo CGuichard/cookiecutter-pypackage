@@ -1,33 +1,44 @@
 ##@ Project's Makefile, with utility commands for the project development lifecycle.
 
 MAKEFLAGS += --no-print-directory
+HELP_COLUMN=11
 
 UV=uv
 PYTHON=$(UV) run python
-TOX=$(UV) run tox -qq
 PRE_COMMIT=$(UV) run pre-commit
 COMMITIZEN=$(UV) run cz
+RUFF=$(UV) run --group lint ruff
+MYPY=$(UV) run --group lint mypy
+TOX=$(UV) run --group test tox -qq
+PYTEST=$(UV) run --group test pytest
+MKDOCS=$(UV) run --group docs --directory docs mkdocs
 
-.PHONY: default help pipeline setup release clean shell
-.PHONY: build install install-dev install-all pre-commit
-.PHONY: lint lint-watch test docs docs-serve docs-live
-
-# ======================================================= #
+.PHONY: default pipeline setup install install-dev install-all release pre-commit
+.PHONY: shell build lint lint-watch test test-matrix docs docs-live clean help
 
 default: help
 
-pipeline: clean build lint test docs ## Run clean, build, lint, test, docs.
+pipeline: clean build lint test-matrix docs ## Run clean, build, lint, test-matrix, docs.
 
 setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
 	@$(PRE_COMMIT) install --install-hooks
+
+install: ## Install in the python venv.
+	@$(UV) sync --all-extras --no-dev --no-editable
+
+install-dev: ## Install in editable mode inside the python venv with dev group dependencies.
+	@$(UV) sync --all-extras --inexact
+
+install-all: ## Install in editable mode inside the python venv with all extras and groups dependencies.
+	@$(UV) sync --all-extras --all-groups --inexact
 
 release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@$(COMMITIZEN) bump --yes --changelog
 	@./scripts/update_latest_tag_msg.sh
 
-clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
-	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
-	@rm -rf dist .coverage tests-reports docs/build .*_cache
+pre-commit: ## Run all pre-commit hooks.
+	@$(PRE_COMMIT) run --all-files
+	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
 
 shell: ## Open Python shell.
 	@$(PYTHON)
@@ -35,41 +46,36 @@ shell: ## Open Python shell.
 build: ## Build wheel and tar.gz in 'dist/'.
 	@$(UV) build
 
-install: ## Install in the python venv.
-	@$(UV) sync --all-extras --no-dev --no-editable
-
-install-dev: ## Install in editable mode inside the python venv with dev group dependencies.
-	@$(UV) sync --all-extras
-
-install-all: ## Install in editable mode inside the python venv with all extras and groups dependencies.
-	@$(UV) sync --all-extras --all-groups
-
-pre-commit: ## Run all pre-commit hooks.
-	@$(PRE_COMMIT) run --all-files
-	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
-
 lint: ## Lint python source code.
-	@$(TOX) -e lint
+	@$(RUFF) format --force-exclude --exit-non-zero-on-format src tests
+	@$(RUFF) check --fix --force-exclude --exit-non-zero-on-fix src tests
+	@$(MYPY) src
 
 lint-watch: ## Watch for src Python files changes and run `make lint`.
-	@$(UV) run --script scripts/watch.py --clear --filter "*.py" src "make lint"
+	@$(UV) run scripts/watch.py --clear --filter "*.py" src "make lint"
 
-test: ## Invoke tox to run automated tests.
+test: export COVERAGE_FILE = tests-reports/py{{ cookiecutter.python_min.replace('.', '') }}/coverage-data
+test: ## Run automated tests.
+	@$(PYTEST) \
+        --junit-xml=tests-reports/py{{ cookiecutter.python_min.replace('.', '') }}/junit-report.xml \
+        --cov-report=html:tests-reports/py{{ cookiecutter.python_min.replace('.', '') }}/coverage-html \
+        --cov-report=xml:tests-reports/py{{ cookiecutter.python_min.replace('.', '') }}/coverage.xml \
+        --html=tests-reports/py{{ cookiecutter.python_min.replace('.', '') }}/index.html \
+        --self-contained-html
+
+test-matrix: ## Run automated tests across multiple isolated python versions.
 	@$(TOX)
 
-docs: ## Build the docs.
-	@$(TOX) -e docs
+docs: ## Build the documentation.
+	@$(MKDOCS) build
 
-docs-serve: docs ## Start http server to serve the docs.
-	@printf "Docs: http://localhost:8000\n"
-	@$(PYTHON) -m http.server -b 0.0.0.0 -d docs/build/html 8000 > /dev/null
+docs-live: ## Live-edition of the documentation.
+	@$(MKDOCS) serve
 
-docs-live: ## Live-edition of the docs.
-	@$(TOX) -e docs -- serve
+clean: ## Clean temporary files, like python '__pycache__', dist build, docs output, tests reports.
+	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
+	@rm -rf dist .coverage tests-reports docs/build .*_cache
 
-# ======================================================= #
-
-HELP_COLUMN=11
 help: ## Show this help.
 	@printf "\033[1m################\n#     Help     #\n################\033[0m\n"
 	@awk 'BEGIN {FS = ":.*##@"; printf "\n"} /^##@/ { printf "%s\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
