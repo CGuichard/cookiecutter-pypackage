@@ -44,11 +44,13 @@ class FileChangeHandler(FileSystemEventHandler):
         ):
             if self._clear:
                 console.clear()
+
             console.print(f"Changes detected {src_path}")
             for cmd in self._commands:
                 _cmd = cmd.strip()
                 console.print(f"[bold]$ {_cmd}")
                 subprocess.run(_cmd.split(" "), check=False)  # noqa: S603
+
             self._executed_at = timestamp()
 
 
@@ -80,6 +82,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if clear:
         console.clear()
+
     console.print(
         f"Watching {path}{f' ({glob_filter})' if glob_filter else ''} "
         f"wait: [bold cyan]{wait_time}s"
