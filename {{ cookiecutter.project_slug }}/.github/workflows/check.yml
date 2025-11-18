@@ -61,7 +61,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "**/pyproject.toml"
       - name: Install documentation dependencies
-        run: uv sync --group docs
+        run: uv sync --no-dev --group docs
       - name: Build documentation
         run: uv run --directory docs mkdocs build
 
@@ -149,7 +149,7 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ "{{ hashFiles('.pre-commit-config.yaml') }}" }}
       - name: Install project and dev dependencies
-        run: uv sync --all-extras
+        run: uv sync --no-dev --all-extras --group vcs
       - name: Run pre-commit
         run: uv run pre-commit run --all-files
 

@@ -34,7 +34,7 @@ jobs:
         run: |
           git fetch origin gh-pages:gh-pages --depth=1 || echo "gh-pages branch does not exist"
       - name: Install documentation dependencies
-        run: uv sync --group docs
+        run: uv sync --no-dev --group docs
       - name: Set default version
         working-directory: docs
         run: |

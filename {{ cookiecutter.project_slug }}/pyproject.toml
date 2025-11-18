@@ -76,11 +76,16 @@ dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-    "build~=1.3",
+    { include-group = "vcs" },
+    { include-group = "scripts" },
+    { include-group = "lint" },
+    { include-group = "test" },
+    { include-group = "docs" },
+]
+vcs = [
     "commitizen==4.10.0",
     "pre-commit~=4.4",
     "pre-commit-uv",
-    { include-group = "scripts" },
 ]
 scripts = [
     # watch.py

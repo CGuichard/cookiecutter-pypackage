@@ -13,7 +13,7 @@ TOX=$(UV) run --group test tox -qq
 PYTEST=$(UV) run --group test pytest
 MKDOCS=$(UV) run --group docs --directory docs mkdocs
 
-.PHONY: default pipeline setup install install-dev install-all release pre-commit
+.PHONY: default pipeline setup install install-dev release pre-commit
 .PHONY: shell build lint lint-watch test test-matrix docs docs-live clean help
 
 default: help
@@ -24,13 +24,10 @@ setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
 	@$(PRE_COMMIT) install --install-hooks
 
 install: ## Install in the python venv.
-	@$(UV) sync --all-extras --no-dev --no-editable
+	@$(UV) sync --no-dev --no-editable --all-extras
 
-install-dev: ## Install in editable mode inside the python venv with dev group dependencies.
+install-dev: ## Install in editable mode inside the python venv with all extras and dev dependencies.
 	@$(UV) sync --all-extras --inexact
-
-install-all: ## Install in editable mode inside the python venv with all extras and groups dependencies.
-	@$(UV) sync --all-extras --all-groups --inexact
 
 release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@$(COMMITIZEN) bump --yes --changelog
