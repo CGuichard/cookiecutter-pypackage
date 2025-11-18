@@ -51,12 +51,11 @@ to make an approved contribution. Don't hesitate to share some new ideas to impr
 We recommend a Linux-based distribution. You will need the following tools on your system:
 
 - [Git](https://git-scm.com/): version control system.
-- [Make](https://www.gnu.org/software/make/): utility mandatory to run
-  the `make` command, that we use for shortcuts of most-used commands
-  in the project life-cycle.
 - [Python](https://www.python.org/) (≥{{ cookiecutter.python_min }}): language of the project,
   you'll need the interpreter.
-- [uv](https://docs.astral.sh/uv/) (≥0.8.0): package and project manager for Python.
+- [Make](https://www.gnu.org/software/make/): utility mandatory to run the `make` command,
+  that we use for shortcuts of most-used commands in the project life-cycle.
+- [uv](https://docs.astral.sh/uv/) (≥0.9.0): package and project manager for Python.
 
 ### Clone the repository
 
@@ -72,21 +71,13 @@ List available commands:
 make help
 ```
 
-To setup your development environment run `make setup`.
+To setup your development environment please run `make setup`.
 
 Here's what it does:
 
-- `uv sync`: create an isolated Python virtual environment,
-  install the project in editable mode, synchronize project dependencies,
-  and also install `dev` dependency group.
-- `pre-commit install --install-hooks`: install pre-commit hooks. Learn more [here](#hooks).
-
-This project uses multiple tools for its development, and your virtual environment
-created with the previous command is just here to give you a working development environment.
-Some tools are handled in sub-virtual environments created by [Tox](https://tox.wiki),
-a virtual env manager and automation tool. The `install-dev` only gives you the
-tools that you will be directly using, delegating other installations inside of _Tox_
-virtual envs.
+- `uv sync`: create an isolated Python virtual environment, install the project in
+  editable mode, synchronize project dependencies, and also install `dev` dependency group.
+- `pre-commit install --install-hooks`: install pre-commit [hooks](#hooks).
 
 ## How to contribute?
 
@@ -194,9 +185,8 @@ To ensure good code writing, we use a lot the following lint tools:
 
 - [ruff](https://docs.astral.sh/ruff/): an extremely fast Python linter and formatter,
   written in Rust. Compatible with `black` formatting style, implement for
-  linting `pylint`, `bandit`, `isort`, `pyupgrade`, `eradicate`, and
-  `flake8` with dozens of its plugins. Check the configuration
-  in our `pyproject.toml`.
+  linting `pylint`, `bandit`, `isort`, `pyupgrade`, `eradicate`, and `flake8` with
+  dozens of its plugins. Check the configuration in our `pyproject.toml`.
 - [mypy](https://mypy.readthedocs.io): static type checker.
 
 These tools are run with:
@@ -208,17 +198,16 @@ make lint
 You can use `lint-watch` to run these tool on file change in `src/`. This
 is really useful as it gives you instantaneous feedback on your code.
 
-> Note: All of these are also run for each commit, failing the commit
-> if at least one error is found.
+> Note: The linting is run for each commit thanks to our [hooks](#hooks),
+> failing the commit if at least one error is found.
 
 ##### Tests
 
 We shall always aim for the highest code coverage in our tests, and our
 development environment should use tools that will help us ensure it.
 
-The test frameworks used are unittest and pytest, run with tox. Thanks
-to pytest-cov, code coverage is evaluated and fails under 80% of test
-coverage.
+The test frameworks used are unittest and pytest. With pytest-cov the
+code coverage is evaluated and fails under 80% of test coverage.
 
 Run the tests with:
 
@@ -226,7 +215,13 @@ Run the tests with:
 make test
 ```
 
-{% if cookiecutter.precommit_push_test and cookiecutter.python_min not in ["3.10"] -%}
+Or, if you want to run the tests across all supported Python version:
+
+```bash
+make test-matrix
+```
+
+{% if cookiecutter.precommit_push_test -%}
 > Note: Tests are run before each push, failing the push if it fails.
 
 {% endif -%}
@@ -244,13 +239,6 @@ You can build the docs with:
 make docs
 ```
 
-If you want to build the docs, and serve it with an http server after
-the build:
-
-```bash
-make docs-serve
-```
-
 When writing the docs, use the live server to automatically rebuild the
 docs.
 
@@ -264,16 +252,19 @@ make docs-live
 {% endif -%}
 ##### Security
 
-We use [pip-audit](https://pypi.org/project/pip-audit/) in our CI to check
+We use [`pip-audit`](https://pypi.org/project/pip-audit/) in our CI to check
 our Python dependencies for potential security vulnerabilities.
+
+To measure your dependencies freshness regardless of security concerns,
+the CI also makes use of [`libyear`](https://libyear.com/).
 
 #### Release
 
-You can create a release with `make release`. Because we follow a
-[commit convention](#commit), the next version is guessed from
-the commit history. The `CHANGELOG.md` file is generated automatically too.
+You can create a release with `make release`. Because we follow a strict
+[commit convention](#commit), the next version is guessed from the commit history.
+The `CHANGELOG.md` file is generated automatically too.
 
-Don't forget to push the tags to your origin repo!
+Don't forget to push the tags to your origin remote!
 
 ```bash
 git push --tags
