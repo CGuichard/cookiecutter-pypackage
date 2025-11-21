@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.0.0 (2025-11-21)
+
+This release reduces reliance on `tox` by moving the **lint** and **docs** tasks to standard
+virtual-environment installation and command execution. The usage of `tox` in `pre-commit` has
+been replaced with `uv`. The integration of `uv` has been expanded and is now used throughout
+the Makefile.
+
+### BREAKING CHANGES
+
+- Upgrade dependencies and migrate project tasks management from tox to uv
+- Rework dev dependencies, merge install-all into install-dev
+- Docs: update CONTRIBUTING.md with tox removal and install-dev changes
+
+### Enhancements
+
+- CI: upgrade uv to 0.9.X
+- CI: upgrade actions checkout, upload-artifact, download-artifact, insightsengineering/coverage-action, sigstore/gh-action-sigstore-python
+- Format script watch.py
+
+### Bug fixes
+
+- CI: update lint dependencies with all extras (project.optional-dependencies)
+- Tox: remove unused gh-actions table
+
 ## 2.2.1 (2025-10-06)
 
 ### Bug fixes
