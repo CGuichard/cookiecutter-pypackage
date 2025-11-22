@@ -34,15 +34,21 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     {% elif cookiecutter.python_min == "3.11" %}
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     {% elif cookiecutter.python_min == "3.12" %}
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     {% elif cookiecutter.python_min == "3.13" %}
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    {% elif cookiecutter.python_min == "3.14" %}
+    "Programming Language :: Python :: 3.14",
     {% endif -%}
     "Programming Language :: Python :: Implementation :: CPython",
     "License :: OSI Approved :: {% if cookiecutter.license == 'GPL-3.0' %}GNU General Public License v3 (GPLv3){% elif cookiecutter.license == 'MIT' %}MIT License{% elif cookiecutter.license=='Apache-2.0' %}Apache Software License{% endif %}",
