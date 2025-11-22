@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.0.1 (2025-11-23)
+
+### Bug fixes
+
+- Fix pre-commit ruff-check files selection, also run on tests
+
 ## 3.0.0 (2025-11-21)
 
 This release reduces reliance on `tox` by moving the **lint** and **docs** tasks to standard
