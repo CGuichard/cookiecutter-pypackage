@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.1.0 (2025-11-23)
+
+### Enhancements
+
+- Support python 3.14, add to project classifiers, tox envlist, ci test matrix
+
 ## 3.0.1 (2025-11-23)
 
 ### Bug fixes
