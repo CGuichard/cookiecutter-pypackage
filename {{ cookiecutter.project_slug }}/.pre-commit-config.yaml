@@ -55,7 +55,7 @@ repos:
         entry: uv run --quiet --group lint ruff check
         args: ["--fix"]
         language: python
-        files: "^src"
+        files: "^(src|tests)"
         types_or: [python, pyi]
         additional_dependencies: ["uv~=0.9.0"]
       - id: mypy
