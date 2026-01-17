@@ -1,8 +1,8 @@
 [build-system]
 {% if cookiecutter.version == "pyproject" -%}
-requires = ["hatchling >= 1.27.0"]
+requires = ["hatchling >= 1.28.0"]
 {% elif cookiecutter.version == "vcs" -%}
-requires = ["hatchling >= 1.27.0", "hatch-vcs >= 0.5.0"]
+requires = ["hatchling >= 1.28.0", "hatch-vcs >= 0.5.0"]
 {% endif -%}
 build-backend = "hatchling.build"
 
@@ -89,8 +89,8 @@ dev = [
     { include-group = "docs" },
 ]
 vcs = [
-    "commitizen==4.10.0",
-    "pre-commit~=4.4",
+    "commitizen==4.11.6",
+    "pre-commit~=4.5",
     "pre-commit-uv",
 ]
 scripts = [
@@ -99,8 +99,8 @@ scripts = [
     "watchdog~=6.0",
 ]
 lint = [
-    "mypy~=1.18.2",
-    "ruff==0.14.5",
+    "mypy~=1.19.1",
+    "ruff==0.14.13",
 ]
 test = [
     "pytest~=9.0",
@@ -108,7 +108,7 @@ test = [
     "pytest-html~=4.1",
     "pytest-randomly~=4.0", # Randomize testing order
     "pytest-sugar~=1.1", # Better output
-    "tox~=4.32",
+    "tox~=4.34",
     "tox-uv",
 ]
 docs = [
@@ -119,9 +119,9 @@ docs = [
     "mkdocs-literate-nav~=0.6", # API reference
     "mkdocs-material~=9.7",
     "mkdocs-section-index~=0.3",
-    "mkdocstrings~=0.30", # API reference
-    "mkdocstrings-python~=1.19", # API reference
-    "ruff==0.14.5", # API reference - code formatting
+    "mkdocstrings~=1.0", # API reference
+    "mkdocstrings-python~=2.0", # API reference
+    "ruff==0.14.13", # API reference - code formatting
     "termynal~=0.13", # Animated terminals
 ]
 
