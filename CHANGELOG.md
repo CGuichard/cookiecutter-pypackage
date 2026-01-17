@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.2.0 (2026-01-17)
+
+### Enhancements
+
+- Improve pre-commit config and install
+- Update dev dependencies
+
+### Bug fixes
+
+- Remove exec permission on .github issue templates
+
 ## 3.1.0 (2025-11-23)
 
 ### Enhancements
