@@ -21,7 +21,10 @@ default: help
 pipeline: clean build lint test-matrix docs ## Run clean, build, lint, test-matrix, docs.
 
 setup: install-dev ## Run 'install-dev' and install pre-commit hooks.
-	@$(PRE_COMMIT) install --install-hooks
+	@$(PRE_COMMIT) install --install-hooks \
+		--hook-type pre-commit \
+		--hook-type commit-msg \
+		--hook-type pre-push
 
 install: ## Install in the python venv.
 	@$(UV) sync --no-dev --no-editable --all-extras
@@ -35,7 +38,7 @@ release: ## Bump version, create tag and update 'CHANGELOG.md'.
 
 pre-commit: ## Run all pre-commit hooks.
 	@$(PRE_COMMIT) run --all-files
-	@$(PRE_COMMIT) run --hook-stage pre-push --all-files
+	@$(PRE_COMMIT) run --all-files --hook-stage pre-push
 
 shell: ## Open Python shell.
 	@$(PYTHON)
