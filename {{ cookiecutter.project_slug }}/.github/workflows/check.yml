@@ -23,8 +23,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - name: Run Commitizen
         run: uvx --from commitizen cz check --rev-range HEAD
 
@@ -37,8 +35,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - name: Run build
         run: uv build
       - name: Run twine check
@@ -58,8 +54,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - name: Install documentation dependencies
         run: uv sync --no-dev --group docs
       - name: Build documentation
@@ -77,6 +71,7 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
+          enable-cache: false
       - name: Export dependencies
         run: uv export --no-dev --no-emit-project > requirements.txt
       - name: Prepare summary
@@ -114,8 +109,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - name: Install project dependencies
         run: uv sync --no-dev --all-extras
       - name: Generate SBOM
@@ -142,8 +135,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pre-commit
@@ -177,8 +168,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
           python-version: ${{ "{{ matrix.python-version }}" }}
       - name: Run tests
         run: |
@@ -207,8 +196,6 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           version: ">=0.9.0"
-          enable-cache: true
-          cache-dependency-glob: "**/pyproject.toml"
       - name: Download all tests-reports
         uses: actions/download-artifact@v7
         with:
