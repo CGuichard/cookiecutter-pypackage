@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.3.0 (2026-01-22)
+
+### Enhancements
+
+- CI: improve setup-uv parameters
+  - Remove `enable-cache` to use default value, except check.yml/audit with `enable-cache: false`
+  - Remove `cache-dependency-glob` to use default value
+- CI: upgrade actions versions
+  - actions/checkout: @v5 -> @v6
+  - actions/upload-artifact: @v5 -> @v6
+  - actions/download-artifact: @v5 -> @v7
+  - gh-action-sigstore-python: @v3.1.0 -> @v3.2.0
+
 ## 3.2.0 (2026-01-17)
 
 ### Enhancements
