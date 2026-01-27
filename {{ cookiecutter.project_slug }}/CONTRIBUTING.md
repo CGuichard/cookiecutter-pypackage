@@ -130,7 +130,7 @@ commits and pull requests, by following the [GitHub autolink convention](https:/
 6. **Push your changes** to your fork.
 
    ```bash
-   git push origin (fix-or-feat)/your-topic-name
+   git push origin --upstream (fix-or-feat)/your-topic-name
    ```
 
 7. **Create a Pull Requests** from your fork's branch to the main repository's main
@@ -260,11 +260,11 @@ the CI also makes use of [`libyear`](https://libyear.com/).
 
 #### Release
 
-You can create a release with `make release`. Because we follow a strict
+Releases are created with `make release`. Because we follow a strict
 [commit convention](#commit), the next version is guessed from the commit history.
 The `CHANGELOG.md` file is generated automatically too.
 
-Don't forget to push the tags to your origin remote!
+Tags created when releasing should be pushed to the origin remote!
 
 ```bash
 git push --tags
@@ -450,7 +450,8 @@ Git then opens an editor to write the commit.
 type(scope): message
 
 I am the body of the commit and I am not limited in size.
-However, keep in mind that if the commit needs a large description it may be better to have an issue with it.
+However, keep in mind that if the commit needs a large description
+it may be better to have an issue with it.
 ```
 
 <!-- --8<-- [end:content] -->
