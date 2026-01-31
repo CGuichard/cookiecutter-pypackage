@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.4.1 (2026-01-31)
+
+### Bug fixes
+
+- Remove GitHub workflow "Docs" unneeded upload-artifact
+
 ## 3.4.0 (2026-01-30)
 
 ### Enhancements
