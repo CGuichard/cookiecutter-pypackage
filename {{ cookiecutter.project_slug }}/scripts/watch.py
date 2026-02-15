@@ -28,7 +28,7 @@ class FileChangeHandler(FileSystemEventHandler):
         self._commands = commands.split(";")
         self._clear = clear
         self._wait_time = wait_time
-        self._glob = glob_filter if glob_filter else "*"
+        self._glob = glob_filter or "*"
         self._executed_at: float = timestamp() - wait_time
 
     def on_modified(self, event: FileSystemEvent) -> None:
