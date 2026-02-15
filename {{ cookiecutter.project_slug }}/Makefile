@@ -37,7 +37,6 @@ release: ## Bump version, create tag and update 'CHANGELOG.md'.
 	@./scripts/update_latest_tag_msg.sh
 
 pre-commit: ## Run all pre-commit hooks.
-	@$(PRE_COMMIT) run --all-files
 	@$(PRE_COMMIT) run --all-files --hook-stage pre-push
 
 shell: ## Open Python shell.
