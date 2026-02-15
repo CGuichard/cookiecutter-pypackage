@@ -55,7 +55,7 @@ We recommend a Linux-based distribution. You will need the following tools on yo
   you'll need the interpreter.
 - [Make](https://www.gnu.org/software/make/): utility mandatory to run the `make` command,
   that we use for shortcuts of most-used commands in the project life-cycle.
-- [uv](https://docs.astral.sh/uv/) (≥0.9.0): package and project manager for Python.
+- [uv](https://docs.astral.sh/uv/) (≥0.10.0): package and project manager for Python.
 
 ### Clone the repository
 
