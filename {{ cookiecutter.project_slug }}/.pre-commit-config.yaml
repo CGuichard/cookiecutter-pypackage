@@ -24,7 +24,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "v4.11.6"
+    rev: "v4.13.7"
     hooks:
       - id: commitizen
       - id: commitizen-branch
@@ -32,7 +32,7 @@ repos:
         stages: [pre-push]
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: "v0.24.1"
+    rev: "v0.25"
     hooks:
       - id: validate-pyproject
 
@@ -44,7 +44,7 @@ repos:
         language: python
         files: "^(src|tests)"
         types_or: [python, pyi]
-        additional_dependencies: ["uv~=0.9.0"]
+        additional_dependencies: ["uv~=0.10.0"]
       - id: ruff-check
         name: ruff check
         entry: uv run --quiet --group lint ruff check
@@ -52,14 +52,14 @@ repos:
         language: python
         files: "^(src|tests)"
         types_or: [python, pyi]
-        additional_dependencies: ["uv~=0.9.0"]
+        additional_dependencies: ["uv~=0.10.0"]
       - id: mypy
         name: mypy (static type checker)
         entry: uv run --quiet --group lint mypy
         language: python
         files: "^src"
         types_or: [python, pyi]
-        additional_dependencies: ["uv~=0.9.0"]
+        additional_dependencies: ["uv~=0.10.0"]
       {%- if cookiecutter.precommit_push_test %}
       - id: test-matrix
         name: test matrix
@@ -68,7 +68,7 @@ repos:
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["uv~=0.9.0"]
+        additional_dependencies: ["uv~=0.10.0"]
       {%- endif %}
       {%- if cookiecutter.precommit_push_docs %}
       - id: mkdocs-build
@@ -79,5 +79,5 @@ repos:
         always_run: true
         pass_filenames: false
         stages: [pre-push]
-        additional_dependencies: ["uv~=0.9.0"]
+        additional_dependencies: ["uv~=0.10.0"]
       {%- endif %}
