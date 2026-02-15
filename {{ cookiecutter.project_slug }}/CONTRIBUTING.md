@@ -181,7 +181,7 @@ find about our QA tools.
 
 ##### Lint
 
-To ensure good code writing, we use a lot the following lint tools:
+To ensure good code writing, we use the following lint tools:
 
 - [ruff](https://docs.astral.sh/ruff/): an extremely fast Python linter and formatter,
   written in Rust. Compatible with `black` formatting style, implement for
