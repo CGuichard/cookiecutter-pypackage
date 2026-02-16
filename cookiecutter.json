@@ -10,6 +10,7 @@
   "license": ["MIT", "Apache-2.0", "GPL-3.0"],
   "copyright_year": "{% now 'utc', '%Y' %}",
   "cli": false,
+  "precommit": ["pre-commit", "prek"],
   "precommit_push_test": false,
   "precommit_push_docs": false,
   "git_branch": "main",
@@ -39,6 +40,11 @@
     },
     "copyright_year": "Year(s) of the copyright",
     "cli": "Create basic CLI?",
+    "precommit": {
+      "__prompt__": "Choose pre-commit tool:",
+      "pre-commit": "pre-commit (default)",
+      "prek": "prek (rust)"
+    },
     "precommit_push_test": "Run tests before git push?",
     "precommit_push_docs": "Generate docs before git push?",
     "git_branch": "Git default branch",

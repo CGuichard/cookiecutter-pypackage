@@ -25,7 +25,7 @@ included in the template depending on the maintenance workload implied.
 - Type checking with `mypy`
 - Testing with `pytest` and `tox`
 - Docs with **Material for MkDocs**, versioned with `mike`
-- Git hooks with `pre-commit`
+- Git hooks with `pre-commit` / `prek`
 - Makefile to easily manage the project's lifecycle
 - GitHub issue/merge requests templates
 - GitHub action for docs, test, and release workflows

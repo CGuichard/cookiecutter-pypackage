@@ -90,8 +90,12 @@ dev = [
 ]
 vcs = [
     "commitizen==4.13.7",
+    {%- if cookiecutter.precommit == "pre-commit" %}
     "pre-commit~=4.5",
     "pre-commit-uv",
+    {%- elif cookiecutter.precommit == "prek" %}
+    "prek~=0.3.0",
+    {%- endif %}
 ]
 scripts = [
     # watch.py

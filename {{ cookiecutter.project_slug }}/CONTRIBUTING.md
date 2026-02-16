@@ -77,7 +77,7 @@ Here's what it does:
 
 - `uv sync`: create an isolated Python virtual environment, install the project in
   editable mode, synchronize project dependencies, and also install `dev` dependency group.
-- `pre-commit install --install-hooks`: install pre-commit [hooks](#hooks).
+- `{{ cookiecutter.precommit }} install --install-hooks`: install pre-commit [hooks](#hooks).
 
 ## How to contribute?
 
@@ -284,7 +284,13 @@ the [Commit](#commit) section.
 Our hooks needs the following dependencies:
 
 - Python (≥{{ cookiecutter.python_min }})
+{%- if cookiecutter.precommit == "pre-commit" %}
 - pre-commit (≥4.0)
+{%- elif cookiecutter.precommit == "prek" %}
+- prek (≥0.3.0)
+
+> Note: We use `prek`, a rust implementation of `pre-commit`.
+{%- endif %}
 
 #### Pull
 

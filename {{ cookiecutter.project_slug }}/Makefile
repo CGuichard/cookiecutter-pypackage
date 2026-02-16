@@ -5,7 +5,7 @@ HELP_COLUMN=11
 
 UV=uv
 PYTHON=$(UV) run python
-PRE_COMMIT=$(UV) run pre-commit
+PRE_COMMIT=$(UV) run {{ cookiecutter.precommit }}
 COMMITIZEN=$(UV) run cz
 RUFF=$(UV) run --group lint ruff
 MYPY=$(UV) run --group lint mypy
