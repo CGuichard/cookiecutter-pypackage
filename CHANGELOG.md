@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (`<major>.<minor>.<patch>`).
 
+## 3.5.0 (2026-02-16)
+
+### Enhancements
+
+- Update dev dependencies
+- Update CONTRIBUTING.md with new uv version
+- CI: upgrade uv version
+- pre-commit: integrate prek as alternative implementation
+- pre-commit: remove a comment in the config file
+- pre-commit: improve ruff format and check hooks names
+
+### Bug fixes
+
+- Small rephrasing in CONTRIBUTING.md
+- Remove if ternary in watch.py script
+- Make: pre-commit target run pre-commit and pre-push in single command
+
 ## 3.4.1 (2026-01-31)
 
 ### Bug fixes
